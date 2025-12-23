@@ -16,6 +16,7 @@ jobs:
          users: aws-action/configure-aws-credential@v1
          with:
            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID }}
-           aws-secret-access-id: ${{secrets.AWS_ACCESS_KEY_ID }}
+           aws-secret-access-id: ${{secrets.AWS_SECERET_ACCESS_KEY }}
            aws-region: us-east-1
-       
+       -name: Deploy static site to s3 bucket
+        run: aws s3 sync . s3://shubham-protfolio18 --delete
